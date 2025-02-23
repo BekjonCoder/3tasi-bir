@@ -40,12 +40,24 @@
 
 // const date=new Date()
 // console.log(date.toLocaleDateString());
-let count=0;
+// let count=0;
 
-setInterval(()=>{
-count++
-console.log(`${count} secund o'tdi`);
+// setInterval(()=>{
+// count++
+// console.log(`${count} secund o'tdi`);
 
 
     
-},1000)
+// },1000)
+let count=0;
+let a=setInterval(()=>{
+    count++
+    console.log(`${count} secund o'tdi`);
+    if(count===10){
+        clearInterval(a)
+        console.log("Salom beris ham evi bilan");
+        
+    }
+    
+        
+    },1000)
