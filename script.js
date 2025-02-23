@@ -49,15 +49,39 @@
 
     
 // },1000)
-let count=0;
-let a=setInterval(()=>{
-    count++
-    console.log(`${count} secund o'tdi`);
-    if(count===10){
-        clearInterval(a)
-        console.log("Salom beris ham evi bilan");
+
+
+
+
+
+
+
+// let count=0;
+// let a=setInterval(()=>{
+//     count++
+//     console.log(`${count} secund o'tdi`);
+//     if(count===10){
+//         clearInterval(a)
+//         console.log("Salom beris ham evi bilan");
         
-    }
+//     }
     
         
+//     },1000)
+
+
+function countdown(seconds){
+    console.log(`Taymer boshlandi: ${seconds} sekund`);
+    let timer=setInterval(()=>{
+        seconds--
+        console.log(seconds);
+        if(seconds<=0){
+            clearInterval(timer)
+            console.log("Tugadi");
+            
+        }
+        
     },1000)
+    
+}
+countdown(10)
