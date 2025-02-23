@@ -29,12 +29,16 @@
 // s.setDate(keyin)
 // console.log(d,s);
 
-let date=new Date(prompt("Yil-oy-sana"))
+// let date=new Date(prompt("Yil-oy-sana"))
 
-let oldin=new Date(date)
-let keyin=new Date(date)
-oldin.setDate(date.getDate()-7)
-keyin.setDate(date.getDate()+7)
-console.log('7 kun keyin'+oldin.toDateString());
-console.log('7 kun oldin'+keyin.toDateString());
+// let oldin=new Date(date)
+// let keyin=new Date(date)
+// oldin.setDate(date.getDate()-7)
+// keyin.setDate(date.getDate()+7)
+// console.log('7 kun keyin'+oldin.toDateString());
+// console.log('7 kun oldin'+keyin.toDateString());
+
+// const date=new Date()
+// console.log(date.toLocaleDateString());
+
 
