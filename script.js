@@ -40,5 +40,12 @@
 
 // const date=new Date()
 // console.log(date.toLocaleDateString());
+let count=0;
+
+setInterval(()=>{
+count++
+console.log(`${count} secund o'tdi`);
 
 
+    
+},1000)
