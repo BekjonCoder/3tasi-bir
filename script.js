@@ -201,19 +201,18 @@ console.log(bmw)
  */
 
 //class usuli
-
-/* class Car {
-	constructor(make, speed) {
-		this.make = make
-		this.speed = speed
-	}
-	static accelarate() {
-		this.speed += 10
-		console.log(`${this.make} endi ${this.speed} km/h tezlikda harakatlanmoqda`)
-	}
-}
-const bmw = new Car("BMW", 200)
-console.log(bmw.accelarate()); */
+// class Car {
+// 	constructor(make, speed) {
+// 		this.make = make
+// 		this.speed = speed
+// 	}
+// 	static accelarate() {
+// 		this.speed += 10
+// 		console.log(`${this.make} endi ${this.speed} km/h tezlikda harakatlanmoqda`)
+// 	}
+// }
+// const bmw = new Car("BMW", 200)
+// console.log(bmw.accelarate()); 
 
 
 
@@ -330,37 +329,92 @@ user.password = "yangiParol" // */
 // const user2 = User.fromJSON(jsonUser2)
 // console.log(user, user2) 
 
-class Car {
-    constructor(make, speed) {
-      this.make = make;
-      this.speed = speed; 
-    }
-    accelerate() {
-      this.speed += 10;
-      console.log(`${this.make} tezlashdi: ${this.speed} km/soat`);
-    }
-    brake() {
-      this.speed -= 5;
-      console.log(`${this.make} sekinlashdi: ${this.speed} km/soat`);
-    }
+// class Car {
+//     constructor(make, speed) {
+//       this.make = make;
+//       this.speed = speed; 
+//     }
+//     accelerate() {
+//       this.speed += 10;
+//       console.log(`${this.make}: ${this.speed} km tezlik bilan ketyabdi`);
+//     }
+//     brake() {
+//       this.speed -= 5;
+//       console.log(`${this.make}: ${this.speed} km tezlik bilan ketyabdi`);
+//     }
   
     
-    get speedUS() {
-      return this.speed / 1.6;
-    }
-    set speedUS(speedInMiles) {
-      this.speed = speedInMiles * 1.6;
-    }
-  }
-  const car= new Car('Nexia 2', 50);
+//     get speedUS() {
+//       return this.speed / 1.6;
+//     }
+//     set speedUS(speedInMiles) {
+//       this.speed = speedInMiles * 1.6;
+//     }
+//   }
+//   const car= new Car('Nexia 2', 50);
   
-//   console.log(`Hozirgi tezlik: ${car.speed} km/soat`);
-//   console.log(`Hozirgi tezlik (mil/soat): ${car.speedUS.toFixed(2)} mi/soat`);
+// //   console.log(`Hozirgi tezlik: ${car.speed} km/soat`);
+// //   console.log(`Hozirgi tezlik (mil/soat): ${car.speedUS.toFixed(2)} mi/soat`);
 
-  car.accelerate();
+//   car.accelerate();
   
-  car.brake();
-  car.speedUS = 50;
-  console.log(`\nSetterdan so‘ng tezlik: ${car.speed} km/soat`);
-  console.log(`Setterdan so‘ng tezlik (mil/soat): ${car.speedUS.toFixed(2)} mi/soat`);
+//   car.brake();
+//   car.speedUS = 50;
+//   console.log(`\nSetterdan so‘ng tezlik: ${car.speed} km/soat`);
+//   console.log(`Setterdan so‘ng tezlik (mil/soat): ${car.speedUS.toFixed(2)} mi/soat`);
   
+
+// class Car {
+// 	constructor(make, speed) {
+// 		this.make = make;
+// 		this.speed = speed;
+// 	}
+// 	speedUS() {  
+// 		this.speed += 10;
+// 		console.log(`${this.make} endi ${this.speed} km/h tezlikda harakatlanmoqda`);
+// 	}
+// 	() {  
+// 		this.speed += 10;
+// 		console.log(`${this.make} endi ${this.speed} km/h tezlikda harakatlanmoqda`);
+// 	}
+// }
+
+// const bmw = new Car("BMW", 200);
+// console.log(bmw);
+
+// bmw.accelerate();
+
+class Car {
+	constructor(make, speed) {
+		this.make = make;
+		this.speed = speed;
+	}
+	accelerate() {
+		this.speed += 10;
+		console.log(`${this.make} endi ${this.speed} km/h tezlikda harakatlanmoqda`);
+	}
+
+	brake() {
+		this.speed -= 10;
+		console.log(`${this.make} endi ${this.speed} km/h tezlikda harakatlanmoqda`);
+	}
+
+	get speedUS() {
+		return this.speed -10;
+	}
+
+	set speedUS(speed) {
+		this.speed = speed + 10; 
+	}
+}
+
+const Nexia = new Car("Nexia 2", 120);
+
+console.log(Nexia.speedUS);
+Nexia.accelerate();
+Nexia.brake();
+
+
+Nexia.speedUS = 50;
+console.log(Nexia.speed); 
+Nexia.brake();
