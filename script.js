@@ -1,3 +1,4 @@
+'use strict';
 // const date=new Date()
 // const date=new Date('2025-02-06T19:00:00')
 // const date=new Date()
@@ -160,7 +161,6 @@
 // person1.age = -5; // "Yosh manfiy bo‘lishi mumkin emas!"
 
 
-'use strict'
 /* const Person = function (surname, name, age) {
 	this.name = name
 	this.surname = surname
@@ -384,37 +384,168 @@ user.password = "yangiParol" // */
 
 // bmw.accelerate();
 
-class Car {
-	constructor(make, speed) {
-		this.make = make;
-		this.speed = speed;
+// class Car {
+// 	constructor(make, speed) {
+// 		this.make = make;
+// 		this.speed = speed;
+// 	}
+// 	accelerate() {
+// 		this.speed += 10;
+// 		console.log(`${this.make} endi ${this.speed} km/h tezlikda harakatlanmoqda`);
+// 	}
+// 	brake() {
+// 		this.speed -= 10;
+// 		console.log(`${this.make} endi ${this.speed} km/h tezlikda harakatlanmoqda`);
+// 	}
+// 	get speedUS() {
+// 		return this.speed -10;
+// 	}
+// 	set speedUS(speed) {
+// 		this.speed = speed + 10; 
+// 	}
+// }
+// const Nexia = new Car("Nexia 2", 120);
+// console.log(Nexia.speedUS);
+// Nexia.accelerate();
+// Nexia.brake();
+// Nexia.speedUS = 50;
+// console.log(Nexia.speed); 
+// Nexia.brake();W
+//bind aplly call
+// function bek(){
+// 	console.log("Salom", this);
+	
+// }
+// const car={
+// 	name:"Cobalt",
+// 	year:2022,
+// 	sayName:bek,
+// 	sayNameW:bek.bind(window)//funksiya ichida turgan this kalit suzini konteksini uzgartirish
+// }
+// console.log(car);
+// car.sayName()
+// car.sayNameW()
+
+
+//Object create() inheritance 
+
+/* const Teacher = function (name, age) {
+	this.name = name
+	this.age = age
+}
+Teacher.prototype.calcAGe = function () {
+	return console.log(`${this.name}ning tug'ilgan yili:${2025 - this.age}`)
+}
+Teacher.prototype.sayHello = function () {
+	return console.log(`Assalamu alaykum hurmatli ${this.name}`)
+}
+const newTech = new Teacher('Sarvinoz', 20)
+
+const Student = function (name, age, course) {
+	Teacher.call(this, name, age)
+	this.course = course
+}
+
+const Other = function (name, age, course, work) {
+	Student.call(this, name, age, course)
+	this.work = work
+}
+Student.prototype = Object.create(Teacher.prototype)
+Student.prototype.constructor = Student
+
+Other.prototype = Object.create(Student.prototype)
+Other.prototype.constructor = Other
+
+
+const student1 = new Student("Sardorbek", 21, "Front")
+const student2 = new Student("Sarvarbek", 30, "Front")
+const other1 = new Other("Kimdur", 35, "Back", "Not working")
+console.log(other1)
+console.log(student1)
+
+
+student1.calcAGe()
+student2.calcAGe()
+student1.sayHello()
+other1.calcAGe() */
+
+
+/* const Car = function (make, speed) {
+	this.make = make
+	this.speed = speed
+}
+Car.prototype.break = function () {
+	this.speed -= 10
+	console.log(`${this.make} endi ${this.speed} km/h da harakatlanmoqda!`)
+}
+
+const EV = function (make, speed, charge) {
+	Car.call(this, make, speed)
+	this.charge = charge
+}
+EV.prototype = Object.create(Car.prototype)
+EV.prototype.chargeBattery = function (chargeTo) {
+	this.charge = chargeTo
+	console.log(`${this.make} quvvatlandi:${this.charge}%`)
+}
+
+EV.prototype.accelarate = function () {
+	if (this.charge > 0) {
+		this.charge--
+		this.speed += 20
+		console.log(`${this.make} endi ${this.speed} km/h da harakatlanmoqda. Quvvati:${this.charge}%`)
+	} else {
+		console.log(`Mashinani quvvatlang`)
 	}
-	accelerate() {
-		this.speed += 10;
-		console.log(`${this.make} endi ${this.speed} km/h tezlikda harakatlanmoqda`);
+}
+const byd = new EV("Build Your Dreams", 180, 3)
+byd.accelarate()
+byd.accelarate()
+byd.accelarate()
+byd.chargeBattery(15)
+byd.accelarate() */
+
+
+/* Inheritance Classes */
+class Payment {
+	constructor(amount) {
+		this.amount = amount
 	}
 
-	brake() {
-		this.speed -= 10;
-		console.log(`${this.make} endi ${this.speed} km/h tezlikda harakatlanmoqda`);
-	}
-
-	get speedUS() {
-		return this.speed -10;
-	}
-
-	set speedUS(speed) {
-		this.speed = speed + 10; 
+	proccesPayment() {
+		console.log(`${this.amount} miqodorda to'lov amalga oshirildi`)
 	}
 }
 
-const Nexia = new Car("Nexia 2", 120);
+class CashPayment extends Payment {
+	proccesPayment() {
+		console.log(`${this.amount} naqd pul orqali to'landi.`)
+	}
+}
 
-console.log(Nexia.speedUS);
-Nexia.accelerate();
-Nexia.brake();
+class CardPayment extends Payment {
+	constructor(amount, cardNumber) {
+		super(amount)
+		this.cardNumber = cardNumber
+	}
+	proccesPayment() {
+		console.log(`${this.amount} karta orqali to'landi  (XXXX-XXXX-XXXX-${this.cardNumber.slice(-4)}).`)
+	}
+}
+
+class CryptoPayment extends Payment {
+	constructor(amount, walletAdress) {
+		super(amount)
+		this.walletAdress = walletAdress
+	}
+
+	proccesPayment() {
+		console.log(`${this.amount} kriptovalyuta orqali to'landi  ${this.walletAdress}.`)
+	}
+}
 
 
-Nexia.speedUS = 50;
-console.log(Nexia.speed); 
-Nexia.brake();
+let cash = new CashPayment(100)
+const card = new CardPayment(250, "1234567812345678")
+const crypto = new CryptoPayment(500, "1A2b3C4d5E6f7G8h9I")
+console.log(cash,card,crypto)
